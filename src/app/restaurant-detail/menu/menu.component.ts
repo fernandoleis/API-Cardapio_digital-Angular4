@@ -11,7 +11,7 @@ import { MenuItem } from '../menu-item/menu-item.model';
 })
 export class MenuComponent implements OnInit {
 
-  menu: Observable<MenuItem[]>
+  menu: Observable<MenuItem[]>;
 
   constructor(
     private restaurantsService: RestaurantsService,
@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
     this.menu = this.restaurantsService.menuOfRestaurant(this.route.parent.snapshot.params['id']);
   }
 
-  addMenuItem(item: MenuItem){
+  addMenuItem(item: MenuItem) {
     console.log(item);
   }
 
