@@ -370,5 +370,19 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "address": "avenida lacerda",
+      "number": "141",
+      "optionalAddress": "ap3",
+      "paymentOption": "REF",
+      "orderItems": [
+        {
+          "quantity": 3,
+          "menuId": "cup-cake"
+        }
+      ],
+      "id": 1
+    }
+  ]
 }
