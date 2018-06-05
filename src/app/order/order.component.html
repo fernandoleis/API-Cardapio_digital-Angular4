@@ -25,7 +25,8 @@
         </div>
         <div class="col-sm-3 col-xs-6">
           <mt-input-container errorMessage="Origatório e somente números" label="Número">
-            <input type="text" class="form-control" name="number" ngModel pattern="^[0-9]*$" placeholder="Número" autocomplete="off" required>
+            <input type="text" class="form-control" name="number" ngModel pattern="^[0-9]*$" placeholder="Número" autocomplete="off"
+              required>
           </mt-input-container>
         </div>
         <div class="col-sm-3 col-xs-6">
@@ -39,7 +40,7 @@
 
       <!-- Table row -->
       <div class="row">
-        <mt-order-itens></mt-order-itens>
+        <mt-order-itens [items]="cartItems()" (increaseQty)="increaseQty($event)" (decreaseQty)="decreaseQty($event)" (remove)="remove($event)"></mt-order-itens>
         <!-- /.col -->
       </div>
       <!-- /.row -->
@@ -50,7 +51,7 @@
           <p class="lead">Formas de Pagamento:</p>
 
           <div class="form-group">
-           <mt-radio [options]="paymentOptions" name="paymentOption" ngModel></mt-radio>
+            <mt-radio [options]="paymentOptions" name="paymentOption" ngModel></mt-radio>
           </div>
 
         </div>
