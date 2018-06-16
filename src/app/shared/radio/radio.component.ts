@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, forwardRef } from '@angular/core';
 import { RadioOption } from './radio-option.model';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms'
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'mt-radio',
