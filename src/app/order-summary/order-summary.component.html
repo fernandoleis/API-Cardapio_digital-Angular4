@@ -8,9 +8,9 @@
     <p>
       <b>Avalie</b> sua experiência:</p>
     <p>
-      <mt-rating (rated)="rated = true"></mt-rating>
+      <mt-rating (rated)="rate()"></mt-rating>
     </p>
-    <p [hidden]="!rated">Obrigado pela sua avaliaçao!</p>
+    <p *ngIf="rated">Obrigado pela sua avaliaçao!</p>
   </div>
 
 </section>
