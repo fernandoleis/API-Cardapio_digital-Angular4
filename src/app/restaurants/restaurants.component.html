@@ -1,16 +1,18 @@
 <section class="content-header">
   <h1>
     Todos os Restaurantes
-    <a (click)="toggleSearch()" class="search-link pull-right"><i class="fa fa-search"></i></a>
+    <a (click)="toggleSearch()" class="search-link pull-right">
+      <i class="fa fa-search"></i>
+    </a>
   </h1>
 
   <!-- barra de buscas -->
   <div class="row">
     <div class="col-xs-12 search-bar" [@toggleSearch]="searchBarState">
-      <form>
+      <form [formGroup]="searchForm">
         <div class="form-group">
           <label for=""></label>
-          <input type="text" name="" id="" class="form-control" placeholder="O que você está procurando" aria-describedby="helpId">
+          <input type="text" formControlName="searchControl" class="form-control" placeholder="O que você está procurando">
           <small id="helpId" class="text-muted">Help text</small>
         </div>
       </form>
