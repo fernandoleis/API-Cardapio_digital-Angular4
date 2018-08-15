@@ -4,7 +4,7 @@ import { User, users } from './user';
 export const handleAuthentication = (req: Request, resp: Response) => {
     const user: User = req.body;
     if (isValid(user)) {
-        const dbUser: User = user[user.email];
+        const dbUser: User = users[user.email];
         resp.json({ name: dbUser.name, email: dbUser.email })
     } else {
         resp.status(403).json({ message: 'Dados inválidos.' })

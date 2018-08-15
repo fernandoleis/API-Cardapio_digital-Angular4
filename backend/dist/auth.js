@@ -4,7 +4,7 @@ var user_1 = require("./user");
 exports.handleAuthentication = function (req, resp) {
     var user = req.body;
     if (isValid(user)) {
-        var dbUser = user[user.email];
+        var dbUser = user_1.users[user.email];
         resp.json({ name: dbUser.name, email: dbUser.email });
     }
     else {
