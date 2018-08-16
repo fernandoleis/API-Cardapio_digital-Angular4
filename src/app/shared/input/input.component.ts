@@ -4,16 +4,17 @@ import {
   Input,
   ContentChild,
   AfterContentInit
-} from "@angular/core";
-import { NgModel, FormControlName } from "@angular/forms";
+} from '@angular/core';
+import { NgModel, FormControlName } from '@angular/forms';
 
 @Component({
-  selector: "mt-input-container",
-  templateUrl: "./input.component.html"
+  selector: 'mt-input-container',
+  templateUrl: './input.component.html'
 })
 export class InputComponent implements OnInit, AfterContentInit {
   @Input() label: string;
   @Input() errorMessage: string;
+  @Input() showTip = true;
 
   input: any;
   @ContentChild(NgModel) model: NgModel;
@@ -26,7 +27,7 @@ export class InputComponent implements OnInit, AfterContentInit {
     this.input = this.model || this.control;
     if (this.input === undefined) {
       throw new Error(
-        "Esse componente precisa ser usado com uma diretiva ngModel ou formControlName"
+        'Esse componente precisa ser usado com uma diretiva ngModel ou formControlName'
       );
     }
   }
