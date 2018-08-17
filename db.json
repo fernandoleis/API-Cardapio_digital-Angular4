@@ -466,6 +466,34 @@
         }
       ],
       "id": 5
+    },
+    {
+      "name": "Amanda Teste",
+      "email": "amanda@gmail.com",
+      "emailConfirmation": "amanda@gmail.com",
+      "address": "Rua do teste",
+      "number": "1",
+      "optionalAddress": "",
+      "paymentOption": "MON",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "burger"
+        },
+        {
+          "quantity": 1,
+          "menuId": "fries"
+        },
+        {
+          "quantity": 1,
+          "menuId": "coke.png"
+        },
+        {
+          "quantity": 1,
+          "menuId": "icestd.png"
+        }
+      ],
+      "id": 6
     }
   ]
 }
