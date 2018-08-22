@@ -494,6 +494,22 @@
         }
       ],
       "id": 6
+    },
+    {
+      "name": "amanda",
+      "email": "amanda@gmail.com",
+      "emailConfirmation": "amanda@gmail.com",
+      "address": "teste can deactiveted",
+      "number": "1",
+      "optionalAddress": "",
+      "paymentOption": "REF",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "cup-cake"
+        }
+      ],
+      "id": 7
     }
   ]
 }
