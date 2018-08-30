@@ -12,6 +12,8 @@ import { NotificationService } from './messages/notification.service';
 import { LoginService } from '../security/login/login.service';
 import { LoggedInGuard } from '../security/loggedin.guard';
 import { LeaveOrderGuard } from '../order/leave-order.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../security/auth.interceptor';
 
 @NgModule({
   declarations: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent],
@@ -29,6 +31,6 @@ import { LeaveOrderGuard } from '../order/leave-order.guard';
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
     // tslint:disable-next-line:max-line-length
-    return { ngModule: SharedModule, providers: [ShoppingCartService, RestaurantsService, OrderService, NotificationService, LoginService, LoggedInGuard, LeaveOrderGuard] }
+    return { ngModule: SharedModule, providers: [ShoppingCartService, RestaurantsService, OrderService, NotificationService, LoginService, LoggedInGuard, LeaveOrderGuard, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }] }
   }
 }
