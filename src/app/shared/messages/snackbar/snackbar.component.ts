@@ -28,14 +28,19 @@ import 'rxjs/add/operator/switchMap';
 export class SnackbarComponent implements OnInit {
 
   message: string;
+  // tslint:disable-next-line:no-inferrable-types
   snackVisibility: string = 'hidden';
   constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
-    this.notificationService.notifier.do(message => {
+    this.notificationService.notifier
+    // .do(message  => console.log(message))
+    .do(message => {
       this.message = message;
       this.snackVisibility = 'visible';
-    }).switchMap(message => Observable.timer(3000)).subscribe(timer => this.snackVisibility = 'hidden');
+    }).switchMap(message => Observable.timer(3000))
+    // .do(timer => console.log('timeout'))
+    .subscribe(timer => this.snackVisibility = 'hidden');
   }
 
 }
