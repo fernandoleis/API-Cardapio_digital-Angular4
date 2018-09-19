@@ -5,7 +5,6 @@ import { MEAT_API } from '../app.api';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { ErrorHandler } from '../app.error-handler';
 import { MenuItem } from '../restaurant-detail/menu-item/menu-item.model';
 
 @Injectable()
@@ -16,9 +15,9 @@ export class RestaurantsService {
   restaurants(search?: string): Observable<Restaurant[]> {
     let params: HttpParams = undefined
     if (search) {
-      params = new HttpParams().set('q', search); //ou usar o append ao inves do set
+      params = new HttpParams().set('q', search); // ou usar o append ao inves do set
     }
-    return this.http.get<Restaurant[]>(`${MEAT_API}/restaurants`, { params: params });
+    return this.http.get<Restaurant[]>(`${MEAT_API}/restaurantss`, { params: params });
   }
 
   restaurantByID(id: string): Observable<Restaurant> {
