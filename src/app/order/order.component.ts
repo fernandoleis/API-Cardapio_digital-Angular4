@@ -5,6 +5,7 @@ import { CartItem } from '../restaurant-detail/shopping-cart/cart-item.model';
 import { Order, OrderItem } from './order.model';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
+import { tap } from 'rxjs/operators'
 
 @Component({
   selector: 'mt-order',
@@ -42,7 +43,7 @@ export class OrderComponent implements OnInit {
 
   ngOnInit() {
     this.orderForm = new FormGroup({
-      name: new FormControl('', { validators: [Validators.required, Validators.minLength(5)]}), // forma reduzida name:''
+      name: new FormControl('', { validators: [Validators.required, Validators.minLength(5)] }), // forma reduzida name:''
       email: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
       emailConfirmation: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
       address: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
@@ -81,11 +82,13 @@ export class OrderComponent implements OnInit {
   checkOrder(order: Order) {
     order.orderItems = this.cartItems().map((item: CartItem) => new OrderItem(item.quantity, item.menuItem.id))
     console.log(order);
-    this.orderService.checkOrder(order).do((orderId: string) => { this.orderId = orderId }).subscribe((orderId: string) => {
-      this.router.navigate(['/order-summary'])
-      console.log(`Compra concluída: ${orderId}`);
-      this.orderService.clear();
-    });
+    this.orderService.checkOrder(order)
+      .pipe(tap((orderId: string) => { this.orderId = orderId }))
+      .subscribe((orderId: string) => {
+        this.router.navigate(['/order-summary'])
+        console.log(`Compra concluída: ${orderId}`);
+        this.orderService.clear();
+      });
   }
 
 }
